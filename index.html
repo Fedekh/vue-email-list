@@ -18,11 +18,18 @@
 </head>
 <body>
     <div id="app">
-        <ul>
-            <li v-for="element in addressArray">
-                {{element}}
-            </li>
-        </ul>
+        <h1>GENERATORE DI EMAIL</h1>
+        <div  class="container">
+            <button v-show="!clicked" @click="generateEmail">CLICCA QUI</button>
+            <ol v-if="addressArray.length === numberEmail">
+                <li  v-for="element in addressArray">
+                    {{element}}
+                </li>
+            </ol>
+            <div v-else v-show="clicked">
+                <div class="spin"></div>
+            </div>
+        </div>
     </div>
     
     <script src="js/script.js"></script>

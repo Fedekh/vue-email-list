@@ -1,8 +1,65 @@
 body {
-    background-color: rgb(53, 53, 52);
+    background-color: rgb(28, 28, 28);
     color: white;
 }
 
-ul{
-    list-style-type: none;
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 2rem;
+    padding-top: 20px;
+    text-align: center;
+    color:red
+}
+
+button {
+    margin: 30px 0;
+    color: rgb(45, 8, 109);
+    font-size: 1.2rem;
+    width: 150px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: green;
+    box-shadow: 0px 0px 40px rgb(133, 10, 59);
+    cursor: pointer;
+}
+
+
+
+ul {
+    margin-top: -60px;
+}
+
+
+li {
+    margin: 10px 0;
+    color: rgb(90, 225, 17);
+    font-size: 1.5rem;
+}
+
+
+.spin {
+    width: 10rem;
+    height: 10rem;
+    border: 13px solid rgba(80, 65, 65, 0.25);
+    border-top-color: rgba(7, 223, 83, 0.5);
+    border-radius: 50%;
+    animation: rotation 0.8s ease infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

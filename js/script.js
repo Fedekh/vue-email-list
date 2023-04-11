@@ -9,24 +9,26 @@ createApp({
     data() {
         return {
             addressArray:[],
-            numberEmail:10
+            numberEmail:10,
+            clicked: false
         }
     },
-    mounted(){                  //occorre per l'esercizio base affinche una volta venga richiamata la funzione nel metodo
-        this.generateEmail()
-    },
     methods: {
-        generateEmail() {
-            for (let i=0; i<this.numberEmail; i++){
-                axios
-                .get("https://flynn.boolean.careers/exercises/api/random/mail")
-                .then((resp) => {
-                    console.log(resp.data.response);
-                    this.addressArray.push(resp.data.response);
-                });
-            }
-            console.log(this.addressArray);
-
+        generateEmail() {           //?dopo 4 secondi dal click compariranno le email tutte assieme
+            this.clicked = !this.clicked
+            setTimeout(() => {
+                for (let i=0; i<this.numberEmail; i++){
+                    axios
+                    .get("https://flynn.boolean.careers/exercises/api/random/mail")
+                    .then((resp) => {
+                        console.log(resp.data.response);
+                        this.addressArray.push(resp.data.response);
+                    });
+                }
+                console.log(this.addressArray);
+                
+            }, 4000);
+            
         }
     }
 }).mount('#app')
