@@ -8,23 +8,25 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            address:[],
+            addressArray:[],
             numberEmail:10
         }
-    },mounted:{
-        generateEmail
+    },
+    mounted(){                  //occorre per l'esercizio base affinche una volta venga richiamata la funzione nel metodo
+        this.generateEmail()
     },
     methods: {
         generateEmail() {
-            for (let i=0; i<numberEmail-1; i++){
+            for (let i=0; i<this.numberEmail; i++){
                 axios
                 .get("https://flynn.boolean.careers/exercises/api/random/mail")
                 .then((resp) => {
                     console.log(resp.data.response);
-                    this.address.push(resp.data.response);
-                    console.log(this.address);
+                    this.addressArray.push(resp.data.response);
                 });
             }
+            console.log(this.addressArray);
+
         }
     }
 }).mount('#app')
